@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
+import {Customer} from '../Shared/interfaces';
+
 @Component ({
   selector: 'app-customers',
   templateUrl: './customers.component.html'
@@ -7,7 +9,7 @@ import {Component, OnInit} from '@angular/core';
 
 export class CustomersComponent implements OnInit {
   title: string;
-  people: any[];
+  people: Customer[];
 
   constructor() {}
 
