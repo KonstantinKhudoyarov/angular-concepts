@@ -1,5 +1,5 @@
 <app-filter-textbox></app-filter-textbox>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -8,16 +8,18 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr *ngFor="let customer of filteredCustomers">
+      <td>{{customer.name}}</td>
+      <td>{{customer.city}}</td>
+      <td>{{customer.orderTotal}}</td>
     </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr *ngIf="filteredCustomers.length">
+      <td colspan="2">Total</td>
+      <td>{{customersOrderTotal}}</td>
+    </tr>
+    <tr *ngIf="!filteredCustomers.length">
+      <td colspan="4">No customers found</td>
     </tr>
   </tbody>
 </table>
-<div>Number of Customers: </div>
+<div>Number of Customers: {{filteredCustomers.length}}</div>
