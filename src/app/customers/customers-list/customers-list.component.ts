@@ -30,4 +30,8 @@ export class CustomersListComponent implements OnInit {
       return acc + next.orderTotal;
     }, 0);
   }
+
+  sort(prop: string) {
+    console.log(prop);
+  }
 }
