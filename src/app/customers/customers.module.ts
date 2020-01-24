@@ -3,11 +3,13 @@ import { CustomersListComponent } from './customers-list/customers-list.componen
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { SharedModule } from './../Shared/shared.module';
+
 import { CustomersComponent } from './customers.component';
 
 @NgModule({
   declarations: [CustomersComponent, CustomersListComponent, FilterTextboxComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, SharedModule],
   exports: [CustomersComponent]
 })
 export class CustomersModule { }

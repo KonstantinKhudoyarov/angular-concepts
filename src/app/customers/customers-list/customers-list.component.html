@@ -9,13 +9,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let customer of filteredCustomers">
-      <td>{{customer.name}}</td>
+      <td>{{customer.name | capitalize}}</td>
       <td>{{customer.city}}</td>
-      <td>{{customer.orderTotal}}</td>
+      <td>{{customer.orderTotal | currency:currencyCode:'symbol'}}</td>
     </tr>
     <tr *ngIf="filteredCustomers.length">
       <td colspan="2">Total</td>
-      <td>{{customersOrderTotal}}</td>
+      <td>{{customersOrderTotal | currency:currencyCode:'symbol'}}</td>
     </tr>
     <tr *ngIf="!filteredCustomers.length">
       <td colspan="4">No customers found</td>
