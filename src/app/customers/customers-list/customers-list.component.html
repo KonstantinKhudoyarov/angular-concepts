@@ -1,4 +1,4 @@
-<app-filter-textbox></app-filter-textbox>
+<app-filter-textbox (changed)="searchString = $event"></app-filter-textbox>
 <table class="table">
   <thead>
     <tr>
@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let customer of filteredCustomers">
+    <tr *ngFor="let customer of filteredCustomers | search:searchString">
       <td>{{customer.name | capitalize}}</td>
       <td>{{customer.city}}</td>
       <td>{{customer.orderTotal | currency:currencyCode:'symbol'}}</td>
