@@ -39,4 +39,17 @@ export class CustomersListComponent implements OnInit {
   sort(prop: string) {
     console.log(prop);
   }
+
+  filter(data: string) {
+    if (data) {
+      this.filteredCustomers = this.customers.filter((customer: Customer) => {
+        return customer.name.toLowerCase().includes(data) ||
+             customer.city.toLowerCase().includes(data) ||
+             customer.orderTotal.toString().includes(data);
+      });
+    } else {
+      this.filteredCustomers = this.customers;
+    }
+    this.calculateOrders();
+  }
 }
