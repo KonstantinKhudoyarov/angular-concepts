@@ -5,7 +5,7 @@ import { DataService } from './data.service';
 
 
 @NgModule({
-  imports: [],
+  imports: [HttpClientModule],
   providers: [DataService]
 })
 

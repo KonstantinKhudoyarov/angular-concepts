@@ -14,8 +14,10 @@ export class CustomersListComponent implements OnInit {
 
   @Input()
   set customers(value: Customer[]) {
-    this.filteredCustomers = this._customers = value;
-    this.calculateOrders();
+    if(value) {
+      this.filteredCustomers = this._customers = value;
+      this.calculateOrders();
+    }
   }
 
   get customers(): Customer[] {
@@ -31,9 +33,9 @@ export class CustomersListComponent implements OnInit {
   ngOnInit() {}
 
   calculateOrders() {
-    this.customersOrderTotal = this.filteredCustomers.reduce((acc, next) => {
-      return acc + next.orderTotal;
-    }, 0);
+      this.customersOrderTotal = this.filteredCustomers.reduce((acc, next) => {
+        return acc + next.orderTotal;
+      }, 0);
   }
 
   sort(prop: string) {
