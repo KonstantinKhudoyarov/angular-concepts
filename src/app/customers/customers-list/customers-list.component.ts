@@ -1,6 +1,7 @@
-import {Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import {Customer} from '../../Shared/interfaces';
+import { Customer } from '../../Shared/interfaces';
+import { SorterService } from './../../core/sorter.service';
 
 @Component ({
   selector: 'app-customers-list',
@@ -14,7 +15,7 @@ export class CustomersListComponent implements OnInit {
 
   @Input()
   set customers(value: Customer[]) {
-    if(value) {
+    if (value) {
       this.filteredCustomers = this._customers = value;
       this.calculateOrders();
     }
@@ -28,7 +29,7 @@ export class CustomersListComponent implements OnInit {
   customersOrderTotal: number;
   currencyCode = 'USD';
 
-  constructor() {}
+  constructor(private sorterService: SorterService) {}
 
   ngOnInit() {}
 
@@ -39,7 +40,7 @@ export class CustomersListComponent implements OnInit {
   }
 
   sort(prop: string) {
-    console.log(prop);
+    this.sorterService.sort(this.filteredCustomers, prop);
   }
 
   filter(data: string) {

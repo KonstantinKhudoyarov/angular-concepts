@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Customer } from '../Shared/interfaces';
+import { Customer, Order } from '../Shared/interfaces';
 import { DataService } from './../core/data.service';
 
 @Component ({
@@ -19,6 +19,6 @@ export class CustomersComponent implements OnInit {
     this.dataService.getCustomers()
         .subscribe((customers: Customer[]) => {
           this.people = customers;
-        });
+    });
   }
 }
