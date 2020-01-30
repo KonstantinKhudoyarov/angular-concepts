@@ -23,6 +23,7 @@ export class SorterService {
       }
 
     });
+
   }
 
   private isString(val: any) {
