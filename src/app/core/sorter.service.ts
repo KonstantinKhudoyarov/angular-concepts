@@ -8,7 +8,7 @@ export class SorterService {
 
   sort(collection: any[], prop: any) {
     this.sortProperty = prop;
-    this.sortDirection = (this.sortProperty === prop) ? this.sortDirection * -1 : 1;
+    this.sortDirection *= -1;
 
     collection.sort((a: any, b: any) => {
       const aValue: any = (this.isString(a[prop])) ? a[prop].trim().toLowerCase() : a[prop];
@@ -23,6 +23,8 @@ export class SorterService {
       }
 
     });
+
+    console.log(this.sortProperty, this.sortDirection);
 
   }
 
