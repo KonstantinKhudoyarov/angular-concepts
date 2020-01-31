@@ -24,8 +24,6 @@ export class SorterService {
 
     });
 
-    console.log(this.sortProperty, this.sortDirection);
-
   }
 
   private isString(val: any) {
